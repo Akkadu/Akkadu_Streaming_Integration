@@ -1,0 +1,24 @@
+{
+  "name": "github-template-javascript",
+  "version": "1.0.0",
+  "description": "Template repository to base new Javascript projects on",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\""
+  },
+  "keywords": [],
+  "author": "JT Houk <jt1992@gmail.com> (https://jt.houk.space/)",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
+    "stylelint": "^13.2.0",
+    "stylelint-order": "^4.0.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-scss": "^3.14.2"
+  }
+}
