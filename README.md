@@ -15,6 +15,12 @@ The goal of this repository is to provide information on how to integrate Akkadu
 
 ##### Receiving audio
 
+run
+
+```
+yarn install
+```
+
 run and head over to localhost:3000
 ```
 yarn start
@@ -35,7 +41,7 @@ In order to hear anyhthing you need to be:
 
 For this testing setup you can head over to
 
-[china link](https://app.akkadu.com/broadcast/interpreter?e=ljwm)
+[china link](https://app.akkadu.cn/broadcast/interpreter?e=ljwm)
 
 or 
 
@@ -43,8 +49,8 @@ or
 
 and login with details:
 
-username: bdinterpreter1@outlook.com
-password: Interpreter1
+- username: bdinterpreter1@outlook.com
+- password: Interpreter1
 
 to broadcast audio click on the green "Start Turn" button. The green bar on the bottom should start moving.
 Remember to allow microphone permissions!
@@ -58,7 +64,8 @@ Remember to allow microphone permissions!
 ##### Importing
 
 Functionalities are exposed through the @akkadu/akkadu-rtc package.
-** This can only be installed with proper npm permission, we have provided you with a token in .npmrc**
+
+**This can only be installed with proper npm permission, we have provided you with a token in .npmrc**
 
 ```
 import Akkadu from './index.js'
@@ -96,7 +103,7 @@ found in .npmrc.
 
 #### Future features
 
-[ ] Create external dev auth solution for packages
-[ ] Create external dev auth solution for APIs
-[ ] Create system for adding external domains to CORS configuration on API server
-[ ] Allow configuration to be passed into akkadu-rtc
+- [ ] Create external dev auth solution for packages
+- [ ] Create external dev auth solution for APIs
+- [ ] Create system for adding external domains to CORS configuration on API server
+- [ ] Allow configuration to be passed into akkadu-rtc
