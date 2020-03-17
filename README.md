@@ -88,3 +88,15 @@ streamer.toggle()
 
 
 
+
+#### Authentication
+As previously mentioned the necessary @akkadu/akkadu-rtc is served behind the token
+found in .npmrc.
+
+
+#### Future features
+
+[ ] Create external dev auth solution for packages
+[ ] Create external dev auth solution for APIs
+[ ] Create system for adding external domains to CORS configuration on API server
+[ ] Allow configuration to be passed into akkadu-rtc
