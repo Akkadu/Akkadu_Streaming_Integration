@@ -1,0 +1,47 @@
+<body>
+  <div style="display:flex; align-items: center; flex-direction: column;">
+    <h1 style="text-align: center;">Akkadu plugin test page</h1>
+    <h2 id='stream-state' style="text-align: center; color:white; border-radius: 2px; width:200px;">Stream stopped</h2>
+    <button id='toggle' style="color:white; margin:5px; height: 100px; width: 200px; box-shadow: 5px 5px darkslategrey; border-radius: 10px; background-color: #1a72ff"> Toggle Stream!</button>
+  </div>
+</body>
+<script type="module">
+
+import Akkadu from './index.js'
+
+const state = document.querySelector('#stream-state')
+const toggle = document.querySelector('#toggle')
+
+let streamer
+let streaming = false
+// For now event information is hard ocded into the package.
+// In the future we would expect a separate authenticated API call
+// that would pass configurations into this
+
+
+async function importAkkadu() {
+  const akkaduRTC = new Akkadu()
+  streamer = await akkaduRTC.init()
+}
+
+function toggleBtn(){
+  if(!streaming){
+    streaming = true
+    state.style.backgroundColor='#dd3b4b'
+    state.textContent = 'Streaming'
+  }
+  else{
+    streaming = false
+    state.style.backgroundColor='#1a72ff'
+    state.textContent = 'Paused'
+  }
+}
+
+
+importAkkadu().then(() => {
+  toggle.addEventListener('click',async() => {
+    streamer.toggle()
+    toggleBtn()
+  }) 
+})
+</script>

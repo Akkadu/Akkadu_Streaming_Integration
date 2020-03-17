@@ -1,24 +1,24 @@
 {
-  "name": "github-template-javascript",
+  "name": "akkadu-integration",
   "version": "1.0.0",
-  "description": "Template repository to base new Javascript projects on",
+  "description": "Template repository to show how to integrate Akkadu",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\""
+    "build": "rm -rf ./dist && yarn rollup -c ./rollup.config.js",
+    "start": "yarn build && node ./bin/www"
   },
   "keywords": [],
-  "author": "JT Houk <jt1992@gmail.com> (https://jt.houk.space/)",
+  "author": "Akkadu - Tuomo Nieminen",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.0.8",
-    "prettier": "^1.19.1",
-    "stylelint": "^13.2.0",
-    "stylelint-order": "^4.0.0",
-    "stylelint-prettier": "^1.1.2",
-    "stylelint-scss": "^3.14.2"
+    "ejs": "^3.0.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsdoc": "^22.0.1",
+    "express": "^4.17.1",
+    "rollup": "^2.0.6"
+  },
+  "dependencies": {
+    "@akkadu/akkadu-rtc": "^1.3.17",
+    "rollup-plugin-node-resolve": "^5.2.0"
   }
 }
