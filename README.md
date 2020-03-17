@@ -68,7 +68,7 @@ Functionalities are exposed through the @akkadu/akkadu-rtc package.
 **This can only be installed with proper npm permission, we have provided you with a token in .npmrc**
 
 ```
-import Akkadu from './index.js'
+import Akkadu from '@akkadu/akkadu-rtc'
 
 async function initAkkadu() {
   // for the scope of this test configuration is hard coded, in the future your would pass configuration here
