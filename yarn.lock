@@ -2,13 +2,13 @@
 # yarn lockfile v1
 
 
-"@akkadu/akkadu-rtc@^1.3.17":
-  version "1.3.17"
-  resolved "https://registry.yarnpkg.com/@akkadu/akkadu-rtc/-/akkadu-rtc-1.3.17.tgz#9ffda25508cc56622b1c85d5280717e638501244"
-  integrity sha512-Im1VtztlycT1ivD825fayvq6RyP34tn37NaVyEg+Q81QDlQcc4fz0s4/FfvOtwv9qN5Gyvl+b5LoYMg05GtOxQ==
+"@akkadu/akkadu-rtc@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@akkadu/akkadu-rtc/-/akkadu-rtc-1.4.1.tgz#08274aa89724f68878ac06dcb6025b608860aa96"
+  integrity sha512-7sjtwr61fenbpcvqL2HvMlWxsLxhlF3+yUcBOdszR7w9vgSbXx17FT6WjQccjjk24mjXt3psx44reIwGBu3J9Q==
   dependencies:
     "@akkadu/error" "^1.3.7"
-    "@akkadu/rtc-streamer-audience" "^1.3.16"
+    "@akkadu/rtc-streamer-audience" "^1.3.18"
     validate.js "^0.13.1"
 
 "@akkadu/browser-info@^1.3.16":
@@ -30,49 +30,49 @@
   dependencies:
     "@akkadu/timer" "^1.3.4"
 
-"@akkadu/rtc-channel-manager@^1.3.16":
-  version "1.3.16"
-  resolved "https://registry.yarnpkg.com/@akkadu/rtc-channel-manager/-/rtc-channel-manager-1.3.16.tgz#93a3dcc26baf062e5438fd19f4bce8e0777ed3e5"
-  integrity sha512-iXemZxrwW3gPqvmYEH/s/Jm1P6IWZCa8rdjAEVO7WJQdArPaSHI4Pq898zDLvhZfJJPpCt6JBV5iJb/1CWv0WQ==
+"@akkadu/rtc-channel-manager@^1.3.18":
+  version "1.3.18"
+  resolved "https://registry.yarnpkg.com/@akkadu/rtc-channel-manager/-/rtc-channel-manager-1.3.18.tgz#99fec1d6fcaf92b0e0b1139b456435abe5b2b479"
+  integrity sha512-1/TmGz6c+8HtpU2omVSWE/0UAAaYp8aYr+nM6o449NfHc8FufAyKbbEY8A/JwmdxC12MGhj1hVNw3in9zgypbw==
   dependencies:
     "@akkadu/error" "^1.3.7"
-    "@akkadu/rtc-streamer-producer" "^1.3.16"
+    "@akkadu/rtc-streamer-producer" "^1.3.18"
     validate.js "^0.13.1"
 
-"@akkadu/rtc-streamer-audience@^1.3.16":
-  version "1.3.16"
-  resolved "https://registry.yarnpkg.com/@akkadu/rtc-streamer-audience/-/rtc-streamer-audience-1.3.16.tgz#45eea3e456f89f54c6c36e6e35b593477d5ffeb3"
-  integrity sha512-m4yIkG03MkbpZUF9rqEFs6H6py4BnfpBYbIWYY/7R1yCkXulODDCUZ7H2PWcdnPhouA9gatopQi+RsztjsidHg==
+"@akkadu/rtc-streamer-audience@^1.3.18":
+  version "1.3.18"
+  resolved "https://registry.yarnpkg.com/@akkadu/rtc-streamer-audience/-/rtc-streamer-audience-1.3.18.tgz#4c27a15faf84ef3016e669f73456a838d67c3f30"
+  integrity sha512-cnDcNGQS9VkyoAQ+SxMpEc5R+YXZbKWi7WpjQm4x1c4eQBM5C+AAGO7v5TEQMq8NzxTV5CgKqjpZb6OYYhHkEw==
   dependencies:
     "@akkadu/error" "^1.3.7"
-    "@akkadu/rtc-channel-manager" "^1.3.16"
+    "@akkadu/rtc-channel-manager" "^1.3.18"
     validate.js "^0.13.1"
 
-"@akkadu/rtc-streamer-base@^1.3.16":
-  version "1.3.16"
-  resolved "https://registry.yarnpkg.com/@akkadu/rtc-streamer-base/-/rtc-streamer-base-1.3.16.tgz#7b2b7c6c0208d6e8345868a512ab46b36934191b"
-  integrity sha512-yWhWaLwA+iIl6qBRp6zJm4hQ/UGzoG4v6IGmOYmp0oei0Hwdxg8sqHneK+/ZCHMWoPcdacNDRalmN76nNoWi3w==
+"@akkadu/rtc-streamer-base@^1.3.18":
+  version "1.3.18"
+  resolved "https://registry.yarnpkg.com/@akkadu/rtc-streamer-base/-/rtc-streamer-base-1.3.18.tgz#fc6fa1aec5e8a1287b2e6da029aa58aecd24a3b9"
+  integrity sha512-+Ia/3Oo6lgxzLFRP1qDao+i0gs3h3mchQMOSP+w9f7H4gmFV1thNjAtwXykZPsuA50Ysmku6JE/R7HdYtppsCQ==
   dependencies:
     "@akkadu/browser-info" "^1.3.16"
     "@akkadu/error" "^1.3.7"
     validate.js "^0.13.1"
 
-"@akkadu/rtc-streamer-consumer@^1.3.16":
-  version "1.3.16"
-  resolved "https://registry.yarnpkg.com/@akkadu/rtc-streamer-consumer/-/rtc-streamer-consumer-1.3.16.tgz#ac0cfae1bd6daf3702a53ca5e18ce158fcfd694b"
-  integrity sha512-YfsQqOcZToviTAVa6eRfsr94aw+2AP/J7MD0lqUYOtsjPvVhmVgOYWldC+hCnrsWMr85EGN+6ZmhZfVZ5t6nmg==
+"@akkadu/rtc-streamer-consumer@^1.3.18":
+  version "1.3.18"
+  resolved "https://registry.yarnpkg.com/@akkadu/rtc-streamer-consumer/-/rtc-streamer-consumer-1.3.18.tgz#a54eccf0eb99f883bf9fb073b4fac6a02ed91b2b"
+  integrity sha512-Bcf/MGeD9m7rziw8cOk4N3C09u1ytL8qk3zbgtTvXq4Q3ss7CETHrhp9+ORTnEPbfM1G1WB9FCkNcbf3YUthXA==
   dependencies:
     "@akkadu/error" "^1.3.7"
-    "@akkadu/rtc-streamer-base" "^1.3.16"
+    "@akkadu/rtc-streamer-base" "^1.3.18"
     validate.js "^0.13.1"
 
-"@akkadu/rtc-streamer-producer@^1.3.16":
-  version "1.3.16"
-  resolved "https://registry.yarnpkg.com/@akkadu/rtc-streamer-producer/-/rtc-streamer-producer-1.3.16.tgz#9e981b3a389f81a1fa09544bd602ade04eba012b"
-  integrity sha512-tiFhNXSMmfNj4Mbf3wnbrzhQBuV5ct31NoCvgac2omdoCLCHpUZTpz9TQFXxhlxC7jx8mnAitz01ESpJZp3bnA==
+"@akkadu/rtc-streamer-producer@^1.3.18":
+  version "1.3.18"
+  resolved "https://registry.yarnpkg.com/@akkadu/rtc-streamer-producer/-/rtc-streamer-producer-1.3.18.tgz#e8b6efc9c5625767530586eb115275983848eaf9"
+  integrity sha512-LhnMbvPb9tToqf9pXC/wO5zVofY786Teq+p9J0ZmxUaHLCdtgJfL4qBdUbAgYynRNgKNS24/TqBv0icSwSNzCA==
   dependencies:
     "@akkadu/error" "^1.3.7"
-    "@akkadu/rtc-streamer-consumer" "^1.3.16"
+    "@akkadu/rtc-streamer-consumer" "^1.3.18"
     validate.js "^0.13.1"
 
 "@akkadu/timer@^1.3.4":

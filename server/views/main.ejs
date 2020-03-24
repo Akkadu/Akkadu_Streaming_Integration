@@ -22,7 +22,7 @@ let streaming = false
 
 
 async function importAkkadu() {
-  const akkaduRTC = new Akkadu()
+  const akkaduRTC = new Akkadu({roomName:'rwbb'})
   streamer = await akkaduRTC.init()
 }
 

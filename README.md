@@ -41,15 +41,15 @@ In order to hear anyhthing you need to be:
 
 For this testing setup you can head over to
 
-[china link](https://app.akkadu.cn/broadcast/interpreter?e=ljwm)
+[china link](https://app.akkadu.cn/broadcast/interpreter?e=rwbb)
 
 or 
 
-[global link](https://app.akkadu.com/broadcast/interpreter?e=ljwm)
+[global link](https://app.akkadu.com/broadcast/interpreter?e=rwbb)
 
 and login with details:
 
-- username: bdinterpreter1@outlook.com
+- username: akkaduinterpreter1@outlook.com
 - password: Interpreter1
 
 to broadcast audio click on the green "Start Turn" button. The green bar on the bottom should start moving.
@@ -67,13 +67,19 @@ Functionalities are exposed through the @akkadu/akkadu-rtc package.
 
 **This can only be installed with proper npm permission, we have provided you with a token in .npmrc**
 
+As you can see in the main.ejs file we are passing a configuration into the streamer.
+For the scope of this test you can continue to use the same roomName and the login details
+provided in the previous step
+
 ```
 import Akkadu from '@akkadu/akkadu-rtc'
 
 async function initAkkadu() {
-  // for the scope of this test configuration is hard coded, in the future your would pass configuration here
-  // based upon data you would request from our API
-  const akkaduRTC = new Akkadu()
+  
+  const config = {
+    roomName:'rwbb'
+  }
+  const akkaduRTC = new Akkadu(config)
   // Importing of sub-modules is dynamic and depends on the environment. Since we only want to load the things we need
   // this initialization async
   streamer = await akkaduRTC.init()
