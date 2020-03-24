@@ -69,7 +69,7 @@ Functionalities are exposed through the @akkadu/akkadu-rtc package.
 
 As you can see in the main.ejs file we are passing a configuration into the streamer.
 For the scope of this test you can continue to use the same roomName and the login details
-provided in the previous step
+provided in the previous step.
 
 ```
 import Akkadu from '@akkadu/akkadu-rtc'
@@ -77,7 +77,7 @@ import Akkadu from '@akkadu/akkadu-rtc'
 async function initAkkadu() {
   
   const config = {
-    roomName:'rwbb'
+    roomName:'rwbb' // this is an event identifier.
   }
   const akkaduRTC = new Akkadu(config)
   // Importing of sub-modules is dynamic and depends on the environment. Since we only want to load the things we need
