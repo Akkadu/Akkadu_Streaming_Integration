@@ -11,7 +11,9 @@ async function initializeTestServer() {
     app.set('views', path.join(__dirname, 'views'))
     app.set('view engine', 'ejs')
     app.use(express.static(path.join(__dirname, '../dist')))
-    app.use('/', (req,res) => res.render('main'))
+    app.get('/', (req,res) => res.render('receiver'))
+    app.get('/receiver', (req,res) => res.render('receiver'))
+    app.get('/broadcaster', (req,res) => res.render('broadcaster'))
     const server = http.createServer(app)
     server.listen(port, (err) => {
       if (err) {
