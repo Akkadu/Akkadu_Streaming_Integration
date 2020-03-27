@@ -42,8 +42,12 @@ The code for this can be found at
 ./server/views/receiver.ejs
 ```
 
+#### Considerations of audio sources
 
-In order to hear anyhthing you need to be:
+In order to receive audio, someone of course needs to be broadcasting audio. For this testing setup
+we have integrated our broadcaster as well, so you can experience the streaming with a simple setup.
+See "Broadcasting Audio" for further details
+
 
 ### Broadcasting Audio 
 
@@ -51,7 +55,7 @@ For this testing setup you can head over to
 
 http://localhost:3000/broadcaster
 
-In order to broadcast audio we need three pieces of information
+In order to broadcast audio we need three pieces of information, see "Getting configuration variables"
 - username 
 - password
 - room
@@ -59,8 +63,6 @@ In order to broadcast audio we need three pieces of information
 In future releases we will introduce a token based authentication, for POC purposes
 this is not implemented yet.
 
-On the broadcaster.ejs I've hard coded these variables which you can use for now for testing.
-To start streaming just click "Toggle Stream!"
 
 ## Using the SDK
 
@@ -72,9 +74,6 @@ Functionalities are exposed through the @akkadu/akkadu-rtc package.
 
 
 #### Importing
-
-As you can see in the receiver.ejs file we are passing a configuration into the streamer.
-For the scope of this test you can continue to use the same roomName as used in "Getting Started"
 
 ```
 import Akkadu from '@akkadu/akkadu-rtc'
@@ -106,9 +105,6 @@ streamer.toggle()
 
 ### Interpreter (Broadcasting)
 
-As you can see in the broadcaster.ejs file we are passing a configuration into the streamer.
-For the scope of this test you can continue to use the same roomName and login details
-provided in broadcaster.ejs
 
 ```
 import Akkadu from '@akkadu/akkadu-rtc'
@@ -138,9 +134,21 @@ streamer.toggle()
 
 
 
-#### Authentication
-As previously mentioned the necessary @akkadu/akkadu-rtc is served behind the token
-found in .npmrc.
+## Authentication
+
+- As previously mentioned the necessary @akkadu/akkadu-rtc is served behind the token
+  found in .npmrc.
+- Connecting to the streaming service is done for now through username && password + a roomName
+  in the future this will be replaced with a token based authentication
+
+
+## Event management with Akkadu
+
+ For now you are given a username, password and roomName combinations per event. In the future
+ this will be replaced with a system where you can either:
+  - Create events on Akkadu manually and get roomName + token to use in your event
+  - Create events and receive tokens through an API  
+  - Something else...
 
 
 #### Future features
