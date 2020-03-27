@@ -9,6 +9,12 @@ The goal of this repository is to provide information on how to integrate Akkadu
 ## Getting Started
 
 
+### Getting configuration variables
+
+In order to run this streaming test you need to get certain authentication and room variables, you can
+ask these from your Akkadu Team contact or send an email to techforce@akkadu-team.com
+with heading: "request:streaming-integration <-name-of-your-company->"
+
 ### Running the server
 
 Note: since we are connecting to our Chinese endpoit by default, 
@@ -46,13 +52,15 @@ For this testing setup you can head over to
 http://localhost:3000/broadcaster
 
 In order to broadcast audio we need three pieces of information
-- username
+- username 
 - password
 - room
 
+In future releases we will introduce a token based authentication, for POC purposes
+this is not implemented yet.
+
 On the broadcaster.ejs I've hard coded these variables which you can use for now for testing.
 To start streaming just click "Toggle Stream!"
-
 
 ## Using the SDK
 
@@ -74,7 +82,7 @@ import Akkadu from '@akkadu/akkadu-rtc'
 async function initAkkadu() {
   
   const config = {
-    roomName:'rwbb' // this is an event identifier.
+    roomName: undefined // see "Getting configuration variables" 
   }
   const akkaduRTC = new Akkadu(config)
   // Importing of sub-modules is dynamic and depends on the environment. Since we only want to load the things we need this to be async
@@ -106,9 +114,10 @@ provided in broadcaster.ejs
 import Akkadu from '@akkadu/akkadu-rtc'
 
 async function initAkkadu() {
-  const config = { roomName: 'rwbb' }
-  const username = 'akkaduinterpreter1@outlook.com'
-  const password = 'Interpreter1'
+  // see "Getting configuration variables" 
+  const config = { roomName: undefined }
+  const username = undefined
+  const password = undefined
   const akkaduRTC = new Akkadu(config)
   streamer = await akkaduRTC.initBroadcaster(username, password)
 }

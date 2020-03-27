@@ -22,9 +22,9 @@ let streaming = false
 
 
 async function importAkkadu() {
-  const config = { roomName: 'rwbb' }
-  const username = 'akkaduinterpreter1@outlook.com'
-  const password = 'Interpreter1'
+  const config = { roomName: undefined } // Request a testing roomName from Akkadu Team, see README
+  const username = undefined // request testing account details from Akkadu Team, see README
+  const password = undefined
   const akkaduRTC = new Akkadu(config)
   streamer = await akkaduRTC.initBroadcaster(username, password)
 }
