@@ -68,7 +68,7 @@ this is not implemented yet.
 
 Functionalities are exposed through the @akkadu/akkadu-rtc package.
 
-**This can only be installed with proper npm permission, we have provided you with a token in .npmrc**
+**This can only be installed with proper npm permission, please see "Getting Configuration Variables"**
 
 ### Audience (Receiver)
 
@@ -136,8 +136,7 @@ streamer.toggle()
 
 ## Authentication
 
-- As previously mentioned the necessary @akkadu/akkadu-rtc is served behind the token
-  found in .npmrc.
+- As previously mentioned the necessary @akkadu/akkadu-rtc is served with proper npm token
 - Connecting to the streaming service is done for now through username && password + a roomName
   in the future this will be replaced with a token based authentication
 
