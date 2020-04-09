@@ -110,6 +110,6 @@ temp/
 
 # npmrc
 
-./.npmrc
+.npmrc
 # End of https://www.gitignore.io/api/node
 
