@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "Akkadu - Tuomo Nieminen",
-  "license": "MIT",
+  "license": "Akkadu 2020",
   "devDependencies": {
     "ejs": "^3.0.1",
     "eslint-plugin-import": "^2.20.1",
@@ -18,7 +18,7 @@
     "rollup": "^2.0.6"
   },
   "dependencies": {
-    "@akkadu/akkadu-rtc": "^1.5.0",
+    "@akkadu/akkadu-rtc": "^1.8.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-resolve": "^5.2.0"

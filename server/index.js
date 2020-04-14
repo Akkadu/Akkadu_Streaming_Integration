@@ -20,7 +20,6 @@ async function initializeTestServer() {
         console.error(err)
       }
       console.log('Server listening on port', port)
-      // initializeSocket(server)
       resolve(server)
     })
   })

@@ -1,24 +1,22 @@
 
-# Welcome to Akkadu Modules!
+# Welcome to Akkadu API!
 
-## Description
-
-The goal of this repository is to provide information on how to integrate Akkadu streaming into your platform
+The goal of this repository is to provide information on how to integrate Akkadu interpretation into your platform.
 
 
 ## Getting Started
 
+This feature is still in limited beta testing and we are open to feedback and ideas and feature requests! Please 
+do not hesitate to open an issue here or contact us at techforce@akkadu-team.com!
 
-### Getting configuration variables
+### About configuration
 
-In order to run this streaming test you need to get certain authentication and room variables, you can
-ask these from your Akkadu Team contact or send an email to techforce@akkadu-team.com
-with heading: "request:streaming-integration <-name-of-your-company->"
+There are different configurations for development and for production. They 
+are discussed later in section "Development Environment vs Production Environment".
+To get you started easily we have created an open room and user configuration that you will connect to automatically.
+The default mode is development mode.
 
 ### Running the server
-
-Note: since we are connecting to our Chinese endpoit by default, 
-it's best to use this testing page without a VPN
 
 run
 ```
@@ -42,7 +40,13 @@ The code for this can be found at
 ./server/views/receiver.ejs
 ```
 
-#### Considerations of audio sources
+We have provided you with simple shared testing room with configuration
+```
+ const config = {
+    roomName: 'ejrd',
+    isDevMode: true
+  }
+```
 
 In order to receive audio, someone of course needs to be broadcasting audio. For this testing setup
 we have integrated our broadcaster as well, so you can experience the streaming with a simple setup.
@@ -55,13 +59,88 @@ For this testing setup you can head over to
 
 http://localhost:3000/broadcaster
 
-In order to broadcast audio we need three pieces of information, see "Getting configuration variables"
-- username 
-- password
-- room
+We have provided you with default configurations of
 
-In future releases we will introduce a token based authentication, for POC purposes
-this is not implemented yet.
+```
+const config = { roomName: 'ejrd', isDevMode:true }
+const username = 'akkaduinterpreter1@outlook.com'
+const password = 'Interpreter1'
+```
+
+These will connect to a shared room. Note! The broadcaster allows only one connection to a room
+at a time, and since these credentials are shared (for now) you might hear other people testing
+or experience your broadcast suddenly stopping.
+
+Because of this we highly recommend seeing steps outlined in "Managing your own event"
+
+
+## Managing your own event
+
+### Development Environment vs Production Environment
+
+The reason for this distinction is security. We provide our services from two
+domains: 'devapi.akkadu.cn/com' and 'api.akkadu.cn/com' and we only allow
+localhost access on devapi. Hence in order for you to use our testing 
+setup on your localhost, you need to be connected to devapi and conversely
+on production you want to be connecting to our api.
+We are aware that this is inconvenient for development, and will seek to simplify
+this in the future via developer account access.
+
+The Akkadu RTC sdk will by default try to connect to our production servers, if you
+do not pass in the configuration variable of "isDevMode:true". Hence on localhost
+development remember to pass in that configuration in order to avoid CORS issues.
+
+An important note is that events are unique to both production and dev environments,
+so an event created in dev mode will not work in production mode.
+
+
+#### Production checklist
+[] I have provided CORS domain information to Akkadu
+[] I have created an event at akkadu.cn/com
+[] I have coordinated with Akkadu about event interpretation at contact@akkadu-team.com or otherwise
+[] I have passed in the correct roomName of the event to Akkadu RTC
+[] I have set isDevMode:false
+
+#### Development checklist
+[] I have acquired testing event details from techforce@akkadu-team.com (you can have multiple)
+[] I have set isDevMode:true
+
+
+### Creating your own event (available on production only)
+
+
+1. First signup as an eventorganizer on akkadu.cn/com
+
+![Signup](./images/signup.png)
+
+
+2. Create an event and request interpretation
+
+Click to create event
+
+![Signup](./images/create-event.png)
+
+---
+
+Insert event details.
+
+![Signup](./images/event-name.png)
+
+---
+
+Request interpretation
+
+![Signup](./images/interpretation.png)
+
+---
+
+Copy url of the event
+
+![Signup](./images/created.png)
+
+
+3. The new roomName of your event is in the query at ?e=<--Your-room-hash-->
+
 
 
 ## Using the SDK
@@ -153,6 +232,5 @@ streamer.toggle()
 #### Future features
 
 - [ ] Create external dev auth solution for packages
+- [ ] Allow dev cors on production
 - [ ] Create external dev auth solution for APIs
-- [ ] Create system for adding external domains to CORS configuration on API server
-- [ ] Allow configuration to be passed into akkadu-rtc

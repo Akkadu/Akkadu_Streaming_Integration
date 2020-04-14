@@ -16,14 +16,13 @@ const toggle = document.querySelector('#toggle')
 
 let streamer
 let streaming = false
-// For now event information is hard ocded into the package.
-// In the future we would expect a separate authenticated API call
-// that would pass configurations into this
-
 
 async function importAkkadu() {
-  const roomName = undefined // Request a testing roomName from Akkadu Team, see README
-  const akkaduRTC = new Akkadu({roomName})
+  const config = {
+    roomName: 'ejrd',
+    isDevMode: true
+  }
+  const akkaduRTC = new Akkadu(config)
   streamer = await akkaduRTC.init()
 }
 

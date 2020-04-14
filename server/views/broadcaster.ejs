@@ -8,7 +8,7 @@
 <script type="module">
 
 // or import directly from '@akkadu/akkadu-rtc'
-// in this cae we are using a build dist file exposed from ./dist/index.js
+// in this case we are using a build dist file exposed from ./dist/index.js
 import Akkadu from './index.js'
 
 const state = document.querySelector('#stream-state')
@@ -16,15 +16,11 @@ const toggle = document.querySelector('#toggle')
 
 let streamer
 let streaming = false
-// For now event information is hard ocded into the package.
-// In the future we would expect a separate authenticated API call
-// that would pass configurations into this
-
 
 async function importAkkadu() {
-  const config = { roomName: undefined } // Request a testing roomName from Akkadu Team, see README
-  const username = undefined // request testing account details from Akkadu Team, see README
-  const password = undefined
+  const config = { roomName: 'ejrd', isDevMode:true }
+  const username = 'akkaduinterpreter1@outlook.com'
+  const password = 'Interpreter1'
   const akkaduRTC = new Akkadu(config)
   streamer = await akkaduRTC.initBroadcaster(username, password)
 }
