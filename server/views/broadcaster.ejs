@@ -17,12 +17,34 @@ const toggle = document.querySelector('#toggle')
 let streamer
 let streaming = false
 
+let akkaduActive = false
+let akkaduOnline = false
+
 async function importAkkadu() {
   const config = { roomName: 'ejrd', isDevMode:true }
   const username = 'akkaduinterpreter1@outlook.com'
   const password = 'Interpreter1'
   const akkaduRTC = new Akkadu(config)
   streamer = await akkaduRTC.initBroadcaster(username, password)
+  streamer.on('connection-status',(msg) => {
+        console.log(msg)
+        const { id } = msg
+        switch (id) {
+          case 'connection-active':
+            console.log('Akkadu connection active!')
+            akkaduActive = true
+            akkaduOnline = true
+            break
+          case 'connection-offline':
+           console.log('Akkadu connection offline!')
+            akkaduOnline = false
+            break
+          case 'connection-online':
+            console.log('Akkadu connection online!')
+            akkaduOnline = true
+            break          
+        }
+      })
 }
 
 function toggleBtn(){
