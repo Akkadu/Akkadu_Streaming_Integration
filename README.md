@@ -9,6 +9,11 @@ The goal of this repository is to provide information on how to integrate Akkadu
 This feature is still in limited beta testing and we are open to feedback and ideas and feature requests! Please 
 do not hesitate to open an issue here or contact us at techforce@akkadu-team.com!
 
+### Authentication
+
+Akkadu-RTC package is shared as a private NPM module, and in order for you to install the packages, you need to
+acquire a token at techforce@akkadu-team.com.
+
 ### About configuration
 
 There are different configurations for development and for production. They 
@@ -71,10 +76,10 @@ These will connect to a shared room. Note! The broadcaster allows only one conne
 at a time, and since these credentials are shared (for now) you might hear other people testing
 or experience your broadcast suddenly stopping.
 
-Because of this we highly recommend seeing steps outlined in "Managing your own event"
+Because of this we highly recommend seeing steps outlined in "Managing your event configurations"
 
 
-## Managing your own event
+## Managing your event configurations
 
 ### Development Environment vs Production Environment
 
@@ -93,17 +98,18 @@ development remember to pass in that configuration in order to avoid CORS issues
 An important note is that events are unique to both production and dev environments,
 so an event created in dev mode will not work in production mode.
 
+**In order to have a smooth experience, please refer to checklists provided below:**
 
 #### Production checklist
-[] I have provided CORS domain information to Akkadu
-[] I have created an event at akkadu.cn/com
-[] I have coordinated with Akkadu about event interpretation at contact@akkadu-team.com or otherwise
-[] I have passed in the correct roomName of the event to Akkadu RTC
-[] I have set isDevMode:false
+- [ ] I have provided CORS domain information to Akkadu
+- [ ] I have created an event at akkadu.cn/com
+- [ ] I have coordinated with Akkadu about event interpretation at contact@akkadu-team.com or otherwise
+- [ ] I have passed in the correct roomName of the event to Akkadu RTC
+- [ ] I have set isDevMode:false
 
 #### Development checklist
-[] I have acquired testing event details from techforce@akkadu-team.com (you can have multiple)
-[] I have set isDevMode:true
+- [ ] I have acquired testing event details from techforce@akkadu-team.com (you can have multiple)
+- [ ] I have set isDevMode:true
 
 
 ### Creating your own event (available on production only)
@@ -147,7 +153,7 @@ Copy url of the event
 
 Functionalities are exposed through the @akkadu/akkadu-rtc package.
 
-**This can only be installed with proper npm permission, please see "Getting Configuration Variables"**
+**This can only be installed with proper npm permission, please see "Authentication"**
 
 ### Audience (Receiver)
 
@@ -158,9 +164,9 @@ Functionalities are exposed through the @akkadu/akkadu-rtc package.
 import Akkadu from '@akkadu/akkadu-rtc'
 
 async function initAkkadu() {
-  
+  // see "Managing your event configurations"
   const config = {
-    roomName: undefined // see "Getting configuration variables" 
+    roomName: undefined
   }
   const akkaduRTC = new Akkadu(config)
   // Importing of sub-modules is dynamic and depends on the environment. Since we only want to load the things we need this to be async
@@ -189,7 +195,7 @@ streamer.toggle()
 import Akkadu from '@akkadu/akkadu-rtc'
 
 async function initAkkadu() {
-  // see "Getting configuration variables" 
+  // see "Managing your event configurations" 
   const config = { roomName: undefined }
   const username = undefined
   const password = undefined
@@ -210,23 +216,6 @@ It simply toggles the stream on and off when called.
  */
 streamer.toggle()
 ```
-
-
-
-## Authentication
-
-- As previously mentioned the necessary @akkadu/akkadu-rtc is served with proper npm token
-- Connecting to the streaming service is done for now through username && password + a roomName
-  in the future this will be replaced with a token based authentication
-
-
-## Event management with Akkadu
-
- For now you are given a username, password and roomName combinations per event. In the future
- this will be replaced with a system where you can either:
-  - Create events on Akkadu manually and get roomName + token to use in your event
-  - Create events and receive tokens through an API  
-  - Something else...
 
 
 #### Future features
