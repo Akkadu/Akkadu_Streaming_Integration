@@ -222,14 +222,31 @@ streamer.toggle()
 ```
 
 
-### Detecting online offline state
+### Detecting connection state
 
 As is added to the examples in the project already you can detect connection states of Akkadu RTC with a
-streamer.on listener. 
+streamer.on listener. The types of events fired are:
+
+**connection-active**
+
+This method is fired when all assets are loaded and the streamer is connected to the service.
 
 It is good practice to wait for 'connection-active' method before allowing users or the page logic to toggle streaming.
 This ensures that all the assets are loaded before playback is tried. For instance iOS devices need specific
 polyfills to enable streaming which can take some time to load.
+
+
+**connection-online**
+
+This method fires when we have reconnected
+
+
+**connection-offline**
+
+This method fires when we have lost connection
+
+
+#### Code example
 
 ```
 streamer.on('connection-status',(msg) => {
