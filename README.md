@@ -115,12 +115,12 @@ so an event created in dev mode will not work in production mode.
 ### Creating your own event (available on production only)
 
 
-1. First signup as an eventorganizer on akkadu.cn/com
+#### 1. First signup as an eventorganizer on akkadu.cn/com
 
 ![Signup](./images/signup.png)
 
 
-2. Create an event and request interpretation
+#### 2. Create an event and request interpretation
 
 Click to create event
 
@@ -145,7 +145,11 @@ Copy url of the event
 ![Signup](./images/created.png)
 
 
-3. The new roomName of your event is in the query at ?e=<--Your-room-hash-->
+#### 3. The new roomName of your event is in the query at ?e=<--Your-room-hash-->
+You can now pass this as configuration to Akkadu RTC to be able to receive interpretation
+from this new event.
+
+#### 4. Refer to "Production checklist" to make sure everything is in order
 
 
 
