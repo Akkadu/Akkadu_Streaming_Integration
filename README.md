@@ -4,6 +4,9 @@
 The goal of this repository is to provide information on how to integrate Akkadu interpretation into your platform.
 
 
+For Chinese version of this doc, visit this [link](README_CN.md) please.
+(中文版介绍文档，请访问[此链接](README_CN.md).)
+
 ## Getting Started
 
 This feature is still in limited beta testing and we are open to feedback and ideas and feature requests! Please 

@@ -1,55 +1,51 @@
 
-# 欢迎来到Akkadu API
+# 欢迎来到Akkadu API！
 
 本代码库主要目的是为了提供如何将Akkadu翻译服务集成到您平台上的信息。
 
-# Welcome to Akkadu API!
+For English version of this doc, visit this [link](README.md) please.
 
-The goal of this repository is to provide information on how to integrate Akkadu interpretation into your platform.
+## 准备开始
+
+本功能仍处于beta测试中，我们很乐意接受您的反馈和功能请求！如有问题，请在本代码库提交一个问题请求，或与我们取得联系，邮件地址是techforce@akkadu-team.com。
+
+### 身份认证
+
+Akkadu-RTC开发包可以通过私有的NPM库获取，如果您想要安装这个开发包，你需要与我们联系取得一个令牌（token），联系邮件techforce@akkadu-team.com。
+
+### 关于设置
+
+开发环境和生产环境的设置有一些区别，它们会在“开发环境 vs 生产环境”部分进行讨论。
+
+为了使您可以轻松地创建一个开放房间，和用于连接房间所需的用户设置，默认的模式已被设置为开发模式。
 
 
-## Getting Started
+### 运行服务
 
-This feature is still in limited beta testing and we are open to feedback and ideas and feature requests! Please 
-do not hesitate to open an issue here or contact us at techforce@akkadu-team.com!
-
-### Authentication
-
-Akkadu-RTC package is shared as a private NPM module, and in order for you to install the packages, you need to
-acquire a token at techforce@akkadu-team.com.
-
-### About configuration
-
-There are different configurations for development and for production. They 
-are discussed later in section "Development Environment vs Production Environment".
-To get you started easily we have created an open room and user configuration that you will connect to automatically.
-The default mode is development mode.
-
-### Running the server
-
-run
+执行
 ```
 yarn install
 ```
 
-run
+执行
 ```
 yarn start
 ```
 
 
-### Receiving audio
+### 接收音频
 
-head over to localhost:3000
+用浏览器访问http://localhost:3000
 
-You should see a simple buttom. Clicking that button will start subscibing to our interpreter stream.
-The code for this can be found at
+你应该可以看到一个简单的按钮。点击那个按钮，你将会订阅到我们的翻译员音频流。
+相关代码可以在如下文件中找到：
+
 
 ```
 ./server/views/receiver.ejs
 ```
 
-We have provided you with simple shared testing room with configuration
+我们已经提供了一个简要的测试房间和配置信息:
 ```
  const config = {
     roomName: 'ejrd',
@@ -57,18 +53,17 @@ We have provided you with simple shared testing room with configuration
   }
 ```
 
-In order to receive audio, someone of course needs to be broadcasting audio. For this testing setup
-we have integrated our broadcaster as well, so you can experience the streaming with a simple setup.
-See "Broadcasting Audio" for further details
+为了接受音频，必须要有所接受的播放音频。为了构建测试环境，我们也已经集成了广播组件，您可以简单的配置后就可以进行体验。
+
+更多信息，请查看“广播音频”部分。
 
 
-### Broadcasting Audio 
+### 广播音频 
 
-For this testing setup you can head over to
+为了测试广播配置环境，您可以用浏览器打开地址 http://localhost:3000/broadcaster
 
-http://localhost:3000/broadcaster
 
-We have provided you with default configurations of
+我们已经为了提供了如下默认配置：
 
 ```
 const config = { roomName: 'ejrd', isDevMode:true }
@@ -76,116 +71,111 @@ const username = 'akkaduinterpreter1@outlook.com'
 const password = 'Interpreter1'
 ```
 
-These will connect to a shared room. Note! The broadcaster allows only one connection to a room
-at a time, and since these credentials are shared (for now) you might hear other people testing
-or experience your broadcast suddenly stopping.
+这些配置将会吧您连接到一个共享房间。注意！本广播组件在同一个时间，仅允许连接一个房间，并且，因为所用的配置当前是共享的，您可能会听到其他人在进行测试，或者遇到广播突然停止的情况。
 
-Because of this we highly recommend seeing steps outlined in "Managing your event configurations"
+正因如此，我们强烈建议你查看“管理您的活动配置”部分内容。
 
 
-## Managing your event configurations
+## 管理您的活动配置
 
-### Development Environment vs Production Environment
+### 开发环境 vs 生产环境
 
-The reason for this distinction is security. We provide our services from two
-domains: 'devapi.akkadu.cn/com' and 'api.akkadu.cn/com' and we only allow
-localhost access on devapi. Hence in order for you to use our testing 
-setup on your localhost, you need to be connected to devapi and conversely
-on production you want to be connecting to our api.
-We are aware that this is inconvenient for development, and will seek to simplify
-this in the future via developer account access.
+之所以区别两者，主要是为了安全问题。我们通过如下两个地址提供服务： ‘devapi.akkadu.cn/com’和‘api.akkadu.cn/com’, 且我们仅允许本地（localhost）来访问devapi服务器所提供的服务。因此，为了在本地使用测试配置，您需要链接devapi服务端；相应的，在生产环境，您需要连接我们的api服务器。
 
-The Akkadu RTC sdk will by default try to connect to our production servers, if you
-do not pass in the configuration variable of "isDevMode:true". Hence on localhost
-development remember to pass in that configuration in order to avoid CORS issues.
-
-An important note is that events are unique to both production and dev environments,
-so an event created in dev mode will not work in production mode.
-
-**In order to have a smooth experience, please refer to checklists provided below:**
-
-#### Production checklist
-- [ ] I have provided CORS domain information to Akkadu
-- [ ] I have created an event at akkadu.cn/com
-- [ ] I have coordinated with Akkadu about event interpretation at contact@akkadu-team.com or otherwise
-- [ ] I have passed in the correct roomName of the event to Akkadu RTC
-- [ ] I have set isDevMode:false
-
-#### Development checklist
-- [ ] I have acquired testing event details from techforce@akkadu-team.com (you can have multiple)
-- [ ] I have set isDevMode:true
+我们已经意识到了可能会给开发带来不变，并且会在未来通过开发者账号来简化配置流程。
 
 
-### Creating your own event (available on production only)
+如果在配置中，不设置"isDevMode:true"参数的话，Akkadu RTC开发包将会默认连接我们的生产服务器。因此，在本地开发端，请记得配置参数以避免跨站请求(CORS)问题。
+
+另外一点需要注意的是，在生产环境和开发环境所创建的活动是独有的，所以，在开发模式创建的活动，将不会在生产环境运行。
 
 
-#### 1. First signup as an eventorganizer on akkadu.cn/com
+**为了让您拥有一个轻松的体验，请参考如下配置清单**
+
+
+#### 生产环境配置清单
+- [ ] 我已经向Akkadu提交了跨站请求信息；
+- [ ] 我已经在akkadu.cn/com上创建了一个活动；
+- [ ] 我已经与Akkadu就翻译活动问题进行了协商，联系邮件为contact@akkadu-team.com；或者
+- [ ] 我已经为Akkadu RTC开发包配置了正确的房间信息；
+- [ ] 我已经设置了 `isDevMode:false`
+
+#### 开发环境配置清单
+- [ ] 我已经通过与techforce@akkadu-team.com联系取得了测试活动的详情（你可以拥有多个测试活动）；
+- [ ] 我已经设置了` isDevMode:true`；
+
+
+### 创建属于您自己的活动 (仅限于生产环境)
+
+
+#### 1. 在akkadu.cn/com注册一个活动组织者
 
 ![Signup](./images/signup.png)
 
 
-#### 2. Create an event and request interpretation
+#### 2. 创建一个需要翻译的活动
 
-Click to create event
+点击创建活动
 
 ![Signup](./images/create-event.png)
 
 ---
 
-Insert event details.
+输入活动信息
 
 ![Signup](./images/event-name.png)
 
 ---
 
-Request interpretation
+请求翻译
 
 ![Signup](./images/interpretation.png)
 
 ---
 
-Copy url of the event
+复制活动的网址
 
 ![Signup](./images/created.png)
 
 
-#### 3. The new roomName of your event is in the query at ?e=<--Your-room-hash-->
-You can now pass this as configuration to Akkadu RTC to be able to receive interpretation
-from this new event.
-
-#### 4. Refer to "Production checklist" to make sure everything is in order
+#### 3. 活动房间的名称在网址中的` ?e=<--您的房间号-->`部分
+为了接受活动的翻译数据，您现在可以将该字符串作为配置传给Akkadu RTC。
 
 
-
-## Using the SDK
-
-Functionalities are exposed through the @akkadu/akkadu-rtc package.
-
-**This can only be installed with proper npm permission, please see "Authentication"**
-
-### Audience (Receiver)
+#### 4. 请参考“生产环境配置清单”部分来确定一切按顺序进行
 
 
-#### Importing
+
+## 使用本开发包
+
+功能可以通过@akkadu/akkadu-rtc库获取。
+
+
+**本开发包只能通过适当的npm权限配置来安装，请查看“身份认证”部分**
+
+
+### 观众 (接收端)
+
+
+#### 导入
 
 ```
 import Akkadu from '@akkadu/akkadu-rtc'
 
 async function initAkkadu() {
-  // see "Managing your event configurations"
+  // 查看 "管理您的活动配置"部分
   const config = {
     roomName: undefined
   }
   const akkaduRTC = new Akkadu(config)
-  // Importing of sub-modules is dynamic and depends on the environment. Since we only want to load the things we need this to be async
-  streamer = await akkaduRTC.init() // you can also use "initReceiver"
+  // 取决于环境配置动态导入子模块，我们只需要异步载入
+  streamer = await akkaduRTC.init() // 你也可以使用"initReceiver"
 }
 ```
 
-#### Usage
+#### 使用
 
-The streamer exposes one simple functionality for now, this is the toggle function.
-It simply toggles the stream on and off when called.
+当前播放模块只开放了一个简单的开关功能，其可以开放或关闭音频流。
 
 ```
 /*
@@ -196,14 +186,14 @@ streamer.toggle()
 ```
 
 
-### Interpreter (Broadcasting)
+### 翻译员 (广播)
 
 
 ```
 import Akkadu from '@akkadu/akkadu-rtc'
 
 async function initAkkadu() {
-  // see "Managing your event configurations" 
+  // 请查看"管理您的活动配置"部分 
   const config = { roomName: undefined }
   const username = undefined
   const password = undefined
@@ -212,10 +202,9 @@ async function initAkkadu() {
 }
 ```
 
-#### Usage
+#### 使用
 
-The streamer exposes one simple functionality for now, this is the toggle function.
-It simply toggles the stream on and off when called.
+本模块当前只开放了一个丹丹的开关功能，其可以开放或关闭音频流。
 
 ```
 /*
@@ -226,31 +215,29 @@ streamer.toggle()
 ```
 
 
-### Detecting connection state
+### 检测连接状态
 
-As is added to the examples in the project already you can detect connection states of Akkadu RTC with a
-streamer.on listener. The types of events fired are:
+您可以通过streamer.on listener来检测Akkadu RTC的连接状态。触发事件的类型是：
+
 
 **connection-active**
 
-This method is fired when all assets are loaded and the streamer is connected to the service.
+当全部资源载入且播放流已经连接后，此事件会被触发。
 
-It is good practice to wait for 'connection-active' method before allowing users or the page logic to toggle streaming.
-This ensures that all the assets are loaded before playback is tried. For instance iOS devices need specific
-polyfills to enable streaming which can take some time to load.
+在允许用户或者页面逻辑操控音频流前，最好先等待'connection-active'事件触发。这会确保在回放运行前，所有的所用资源全部已经载入。例如，iOS设备需要来启用音频流特别的兼容组件，可能需要一些事件来载入。
 
 
 **connection-online**
 
-This method fires when we have reconnected
+当连接成功后，本事件会被触发。
 
 
 **connection-offline**
 
-This method fires when we have lost connection
+当连接失去后，本事件会被触发。
 
 
-#### Code example
+#### 代码示例
 
 ```
 streamer.on('connection-status',(msg) => {
@@ -273,8 +260,8 @@ streamer.on('connection-status',(msg) => {
   })
 ```
 
-#### Future features
+#### 未来功能
 
-- [ ] Create external dev auth solution for packages
-- [ ] Allow dev cors on production
-- [ ] Create external dev auth solution for APIs
+- [ ] 为开发包创建外部的验证方案
+- [ ] 在生产环境许可跨域的开发
+- [ ] 为开发接口穿件外部的验证方案
