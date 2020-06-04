@@ -4,6 +4,7 @@ import builtins from 'rollup-plugin-node-builtins'
 
 export default {
   input: './src/index.js',
+  cache:false,
   output: {
     dir: './dist/',
     format: 'esm',
