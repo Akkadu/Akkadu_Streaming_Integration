@@ -157,6 +157,13 @@ from this new event.
 
 
 ## Using the SDK
+### Implement the module in your project 
+* This module is an ESM module, and may need to be babelify in order to be used. 
+* Some [loading](https://github.com/babel/babel-loader/issues/171) issue can occurs when used on a vueJs project.
+* In our case you would need to add :
+exclude: /node_modules\/(?![@akkadu/akkadu-rtc])/
+
+
 
 Functionalities are exposed through the @akkadu/akkadu-rtc package.
 
