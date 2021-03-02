@@ -1,6 +1,6 @@
 <body>
   <div style="display:flex; align-items: center; flex-direction: column;">
-    <h1 style="text-align: center;">Akkadu Broadcast test page</h1>
+    <h1 style="text-align: center;">Akkadu Interpreter 2 test page</h1>
     <h2 id='stream-state' style="text-align: center; color:white; border-radius: 2px; width:200px;">Stream stopped</h2>
     <button id='toggle' style="color:white; margin:5px; height: 100px; width: 200px; box-shadow: 5px 5px darkslategrey; border-radius: 10px; background-color: #1a72ff"> Toggle Stream!</button>
   </div>
@@ -22,8 +22,8 @@ let akkaduOnline = false
 
 async function importAkkadu() {
   const config = { roomName: 'ejrd', isDevMode:true }
-  const username = 'akkaduinterpreter1@outlook.com'
-  const password = 'Interpreter1'
+  const username = 'akkaduinterpreter2@outlook.com'
+  const password = 'Interpreter2'
   const akkaduRTC = new Akkadu(config)
   streamer = await akkaduRTC.initBroadcaster(username, password)
   streamer.on('connection-status',(msg) => {

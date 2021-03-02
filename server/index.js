@@ -13,7 +13,8 @@ async function initializeTestServer() {
     app.use(express.static(path.join(__dirname, '../dist')))
     app.get('/', (req,res) => res.render('receiver'))
     app.get('/receiver', (req,res) => res.render('receiver'))
-    app.get('/broadcaster', (req,res) => res.render('broadcaster'))
+    app.get('/interpreter1', (req,res) => res.render('interpreter1'))
+    app.get('/interpreter2', (req,res) => res.render('interpreter2'))
     const server = http.createServer(app)
     server.listen(port, (err) => {
       if (err) {

@@ -12,10 +12,13 @@ export default {
   },
   plugins: [
     resolve({
-      main:true
+      browser: true,
+      preferBuiltins: true
     }),
-    commonjs(),
-    builtins()
+    commonjs({
+      include: ["node_modules/**"],
+    }),
+    builtins(),
   ],
   external: [
   ],

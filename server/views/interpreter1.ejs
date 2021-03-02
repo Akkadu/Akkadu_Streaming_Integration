@@ -1,0 +1,70 @@
+<body>
+  <div style="display:flex; align-items: center; flex-direction: column;">
+    <h1 style="text-align: center;">Akkadu Interpreter 1 test page</h1>
+    <h2 id='stream-state' style="text-align: center; color:white; border-radius: 2px; width:200px;">Stream stopped</h2>
+    <button id='toggle' style="color:white; margin:5px; height: 100px; width: 200px; box-shadow: 5px 5px darkslategrey; border-radius: 10px; background-color: #1a72ff"> Toggle Stream!</button>
+  </div>
+</body>
+<script type="module">
+
+// or import directly from '@akkadu/akkadu-rtc'
+// in this case we are using a build dist file exposed from ./dist/index.js
+import Akkadu from './index.js'
+
+const state = document.querySelector('#stream-state')
+const toggle = document.querySelector('#toggle')
+
+let streamer
+let streaming = false
+
+let akkaduActive = false
+let akkaduOnline = false
+
+async function importAkkadu() {
+  const config = { roomName: 'ejrd', isDevMode:true }
+  const username = 'akkaduinterpreter1@outlook.com'
+  const password = 'Interpreter1'
+  const akkaduRTC = new Akkadu(config)
+  streamer = await akkaduRTC.initBroadcaster(username, password)
+  streamer.on('connection-status',(msg) => {
+        console.log(msg)
+        const { id } = msg
+        switch (id) {
+          case 'connection-active':
+            console.log('Akkadu connection active!')
+            akkaduActive = true
+            akkaduOnline = true
+            break
+          case 'connection-offline':
+           console.log('Akkadu connection offline!')
+            akkaduOnline = false
+            break
+          case 'connection-online':
+            console.log('Akkadu connection online!')
+            akkaduOnline = true
+            break          
+        }
+      })
+}
+
+function toggleBtn(){
+  if(!streaming){
+    streaming = true
+    state.style.backgroundColor='#dd3b4b'
+    state.textContent = 'Streaming'
+  }
+  else{
+    streaming = false
+    state.style.backgroundColor='#1a72ff'
+    state.textContent = 'Paused'
+  }
+}
+
+
+importAkkadu().then(() => {
+  toggle.addEventListener('click',async() => {
+    streamer.toggle()
+    toggleBtn()
+  }) 
+})
+</script>
