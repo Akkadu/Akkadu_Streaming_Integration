@@ -7,7 +7,7 @@ const statuses = {
 
 function toast(message, dismissOnClick = true, status = 'info') {
   const el = document.createElement('div')
-  el.className = `bg-${status[status]}-400 z-toast absolute top-8 right-8 text-center text-white font-bold rounded-lg shadow-lg p-4 snackbar`
+  el.className = `bg-${statuses[status]}-400 z-toast absolute top-8 right-8 text-center text-white font-bold rounded-lg shadow-lg p-4 snackbar`
   el.setAttribute('data-snackbar', '')
   el.textContent = message
 
