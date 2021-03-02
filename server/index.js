@@ -10,7 +10,7 @@ async function initializeTestServer() {
     // view engine setup
     app.set('views', path.join(__dirname, 'views'))
     app.set('view engine', 'ejs')
-    app.use(express.static(path.join(__dirname, '../dist')))
+    app.use(express.static(path.join(__dirname, '../build')))
     app.get('/', (req,res) => res.render('receiver'))
     app.get('/receiver', (req,res) => res.render('receiver'))
     app.get('/interpreter1', (req,res) => res.render('interpreter1'))
